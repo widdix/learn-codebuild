@@ -16,7 +16,7 @@ phases:
       - command
   build:
     commands:
-      - command
+      - docker build -t learn-codebuild:${CODEBUILD_RESOLVED_SOURCE_VERSION} .
       - command
     finally:
       - command
