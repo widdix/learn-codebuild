@@ -64,9 +64,15 @@ aws ecr create-repository --repository-name learn-codebuild-$user
 
 ## Clean up
 
+Make sure you are deleting all the resources created while going through the labs.
+
 * Delete the ECR registry `learn-codebuild-$user`.
+* Delete the CodeCommit repository `learn-codebuild-$user`.
+* Delete the CodeBuild project `learn-codebuild-$user`.
+* Delete the CodePipeline pipeline `learn-codebuild-$user`.
 * Delete the IAM policy `CodeBuildBasePolicy-learn-codebuild-$user-$region`.
 * Delete the IAM role `codebuild-learn-codebuild-$user-service-role`.
+* Delete the IAM role `AWSCodePipelineServiceRole-eu-west-1-learn-codebuild-$user`
 
 ## More Labs
 

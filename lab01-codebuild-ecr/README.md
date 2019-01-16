@@ -13,7 +13,7 @@ Before you start note that the repository already includes a `Dockerfile` includ
 1. Open the AWS Management Console and jump to the service CodeBuild.
 1. Click the `Create project` or `Create build project` button.
 
-As shown in the following figure fill out the following parameters and keep the defaults for the rest.
+As shown in the following figure fill out the mentioned parameters and keep the defaults for the rest.
 
 1. Type in `learn-codebuild-$user` for the project name. Replace `$user` with your name (e.g. `andreas`).
 1. Choose `AWS CodeCommit` as source provider.
@@ -91,5 +91,6 @@ Learn how to integrate CodeBuild with CodePipeline in the following lab.
 
 ## Help
 
+* [AWS CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html)
 * [Build Specification Reference for AWS CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
 * [Environment Variables in Build Environments](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html)
