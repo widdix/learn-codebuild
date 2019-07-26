@@ -81,3 +81,8 @@ See [widdix/learn-codepipeline](https://github.com/widdix/learn-codepipeline) fo
 ## Credits
 
 The labs include a website example based on Identity from [html5up.net | @ajlkn](https://html5up.net).
+
+
+## More Labs
+
+We offer AWS workshops tailored to your needs. See [widdix/learn-*](https://github.com/widdix?q=learn-) for more labs.
