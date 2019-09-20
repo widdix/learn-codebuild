@@ -18,15 +18,18 @@ As shown in the following figure fill out the mentioned parameters and keep the 
 1. Type in `learn-codebuild-$user` for the project name. Replace `$user` with your name (e.g. `andreas`).
 1. Choose `AWS CodeCommit` as source provider.
 1. Select your repository (e.g. learn-codebuild-andreas).
+1. Select the branch `master`.
 
 ![Creating a CodeBuild project: Step 1](codebuild-create-project-01.png)
 
 Next you need to configure the environment for the project as shown in the following figure.
 
 1. Choose the Environment image `Managed image`.
-1. Select the operating system `Ubuntu`.
-1. Choose the `Docker` runtime.
-1. Choose the latest runtime version.
+1. Select the operating system `Amazon Linux 2`.
+1. Choose the `Standard` runtime.
+1. Select image `aws/codebuild/amazonlinux2-x86_64-standard:1.0`.
+1. Choose `Always use the latest image for this runtime version`.
+1. Enable `Enable this flag if you want to build Docker images or want to builds to get evaluated privileges`.
 1. Select `New service role` and keep the generated role name.
 
 ![Creating a CodeBuild project: Step 2](codebuild-create-project-02.png)
@@ -55,12 +58,12 @@ Use the following command to build the Docker image. Find a way to replace `$ver
 docker build -t learn-codebuild:$version .
 ```
 
-The following commands are needed to tag and push the Docker image to your ECR repository. Make sure to replace `$version` in the same way as you have done in the previous step.
+The following commands are needed to tag and push the Docker image to your ECR repository. Make sure to replace `$version` in the same way as you have done in the previous step. Also, replace `$repositoryuri` with the `repositoryUri` you noted down when setting up your personal lab environment.
 
 ```
-$(aws ecr get-login --no-include-email --region eu-west-1)
-docker tag learn-codebuild:$version 486555357186.dkr.ecr.eu-west-1.amazonaws.com/learn-codebuild-andreas:$version
-docker push 486555357186.dkr.ecr.eu-west-1.amazonaws.com/learn-codebuild-andreas:$version
+$(aws ecr get-login --no-include-email --region ${AWS_REGION})
+docker tag learn-codebuild:$version $repositoryuri:$version
+docker push $repositoryuri:$version
 ```
 
 After modifying the `buildspec.yml` file you need to commit and push your changes to the `deploy` origin.

@@ -23,7 +23,8 @@ Create a CodeCommit repository. Replace `$user` with your name (e.g. `andreas`).
 aws codecommit create-repository --repository-name learn-codebuild-$user
 ```
 
-The command will return some information about your repository.
+The command will return some information about your CodeCommit repository.
+
 ```
 {
     "repositoryMetadata": {
@@ -39,8 +40,10 @@ The command will return some information about your repository.
 }
 ```
 
+Execute the following command to add a new remote named `deploy` to your cloned repository. Replace `$cloneUrlHttp` with the output from the previous command.
+
 ```
-git remote add deploy https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/learn-codebuild-andreas
+git remote add deploy $cloneUrlHttp
 ```
 
 Edit `.git/config` and add.
@@ -61,6 +64,23 @@ Create an ECR repository. Replace `$user` with your name (e.g. `andreas`).
 ```
 aws ecr create-repository --repository-name learn-codebuild-$user
 ```
+
+The command will return some information about your ECR repository.
+
+```
+{
+    "repository": {
+        "repositoryArn": "arn:aws:ecr:eu-central-1:575632519744:repository/learn-codebuild-andreas",
+        "registryId": "575632519744",
+        "repositoryName": "learn-codebuild-andreas",
+        "repositoryUri": "575632519744.dkr.ecr.eu-central-1.amazonaws.com/learn-codebuild-andreas",
+        "createdAt": 1568963927.0,
+        "imageTagMutability": "MUTABLE"
+    }
+}
+```
+
+Note down the `repositoryUri`.
 
 ## Clean up
 
