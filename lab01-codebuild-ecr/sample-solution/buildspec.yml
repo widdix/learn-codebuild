@@ -6,8 +6,6 @@ phases:
   build:
     commands:
       - docker build -t learn-codebuild:${CODEBUILD_RESOLVED_SOURCE_VERSION} .
-  post_build:
-    commands:
       - $(aws ecr get-login --no-include-email)
       - docker tag learn-codebuild:${CODEBUILD_RESOLVED_SOURCE_VERSION} 486555357186.dkr.ecr.eu-west-1.amazonaws.com/learn-codebuild-andreas:${CODEBUILD_RESOLVED_SOURCE_VERSION}
       - docker push 486555357186.dkr.ecr.eu-west-1.amazonaws.com/learn-codebuild-andreas:${CODEBUILD_RESOLVED_SOURCE_VERSION}
